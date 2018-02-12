@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="1" android:clickable="false">
+
+    <Button
+            android:text="CONNETTI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button1"
+            android:width="150dp"
+            android:layout_marginTop="51dp"
+            android:layout_centerHorizontal="true"/>
+    <TextView
+            android:text="TEMPERATURA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="54dp" android:id="@+id/textViewTemp"
+            android:layout_below="@+id/button1" android:layout_toLeftOf="@+id/textViewPres"
+            android:layout_toStartOf="@+id/textViewPres" android:layout_marginRight="69dp"
+            android:layout_marginEnd="69dp" android:visibility="invisible"/>
+    <TextView
+            android:text="PRESSIONE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewPres" android:layout_alignBaseline="@+id/textViewTemp"
+            android:layout_alignBottom="@+id/textViewTemp" android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" android:layout_marginRight="72dp" android:layout_marginEnd="72dp"
+            android:visibility="invisible"/>
+    <TextView
+            android:text="25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewValTemp"
+            android:layout_below="@+id/textViewTemp"
+            android:layout_toStartOf="@+id/button1" android:layout_marginTop="33dp"
+            android:layout_toLeftOf="@+id/button1" android:visibility="invisible"/>
+    <TextView
+            android:text="30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewValPres"
+            android:layout_alignBaseline="@+id/textViewValTemp" android:layout_alignBottom="@+id/textViewValTemp"
+            android:layout_toRightOf="@+id/button1" android:layout_toEndOf="@+id/button1"
+            android:visibility="invisible"/>
+    <TextView
+            android:text="Modifica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textViewModifica"
+            android:layout_marginTop="75dp" android:layout_below="@+id/textViewValTemp"
+            android:layout_centerHorizontal="true" android:visibility="invisible"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:layout_marginTop="37dp" android:id="@+id/editText"
+            android:width="50dp" android:layout_below="@+id/textViewModifica"
+            android:layout_alignLeft="@+id/textViewTemp"
+            android:layout_alignStart="@+id/textViewTemp" android:layout_marginLeft="17dp"
+            android:layout_marginStart="17dp" android:visibility="invisible"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/editTexPres" android:width="50dp" android:layout_alignBaseline="@+id/editText"
+            android:layout_alignBottom="@+id/editText" android:layout_alignRight="@+id/textViewPres"
+            android:layout_alignEnd="@+id/textViewPres" android:layout_marginRight="11dp"
+            android:layout_marginEnd="11dp" android:visibility="invisible"/>
+    <Button
+            android:text="AGGIORNA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp" android:id="@+id/button" android:layout_below="@+id/editText"
+            android:layout_alignRight="@+id/textViewTemp" android:layout_alignEnd="@+id/textViewTemp"
+            android:visibility="invisible"/>
+    <Button
+            android:text="AGGIORNA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3" android:layout_alignBaseline="@+id/button"
+            android:layout_alignBottom="@+id/button" android:layout_toRightOf="@+id/textViewModifica"
+            android:layout_toEndOf="@+id/textViewModifica" android:visibility="invisible"/>
+    <Button
+            android:text="ATTIVA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/textViewTemp" android:layout_alignStart="@+id/textViewTemp"
+            android:id="@+id/button4" android:visibility="invisible"/>
+    <Button
+            android:text="ATTIVA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_alignTop="@+id/button4"
+            android:layout_alignRight="@+id/textViewPres" android:layout_alignEnd="@+id/textViewPres"
+            android:id="@+id/button5" android:visibility="invisible"/>
+</RelativeLayout>
