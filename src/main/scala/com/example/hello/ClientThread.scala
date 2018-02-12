@@ -35,7 +35,7 @@ class ClientThread(var handler:Handler) extends Thread {
         if(socket.getInputStream.available() > 0){
           //in = new BufferedReader(new InputStreamReader(socket.getInputStream))
           val obj = in.readObject()
-          notifyMessage(obj)
+          notifyMessage(obj.asInstanceOf[MyMessage])
         }
         //out.writeObject(new MyMessage(i,"c",0))
         //i+=1
@@ -51,11 +51,11 @@ class ClientThread(var handler:Handler) extends Thread {
     }
   }
 
-  def notifyMessage(str: String): Unit = {
+  def notifyMessage(obj: MyMessage): Unit = {
     val msg = handler.obtainMessage
     val b = new Bundle
     //b.putString("refresh", "" + str)
-    b.putSerializable("refresh", )
+    b.putSerializable("refresh", obj)
     msg.setData(b)
     handler.sendMessage(msg)
   }

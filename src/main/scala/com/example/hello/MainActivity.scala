@@ -83,7 +83,7 @@ class MainActivity extends Activity  {
                 }
                 else{
                     target1 = false
-                    textviewModifica.setVisibility(View.INVISIBLE)
+                    //textviewModifica.setVisibility(View.INVISIBLE)
                     editTextTemp.setVisibility(View.INVISIBLE)
                     textviewValTemp.setVisibility(View.INVISIBLE)
                     button2.setVisibility(View.INVISIBLE)
@@ -92,9 +92,38 @@ class MainActivity extends Activity  {
             }
         })
 
+        button5.setOnClickListener(new OnClickListener {
+            override def onClick(v: View): Unit = {
+                if(!target2){
+                    target2 = true
+                    textviewModifica.setVisibility(View.VISIBLE)
+                    editTextPres.setVisibility(View.VISIBLE)
+                    textviewValPres.setVisibility(View.VISIBLE)
+                    button3.setVisibility(View.VISIBLE)
+                    button5.setText("DISATTIVA")
+                    //thread.invia(new MyMessage(44,"ff",0))
+                }
+                else{
+                    target2 = false
+                    //textviewModifica.setVisibility(View.INVISIBLE)
+                    editTextPres.setVisibility(View.INVISIBLE)
+                    textviewValPres.setVisibility(View.INVISIBLE)
+                    button3.setVisibility(View.INVISIBLE)
+                    button5.setText("ATTIVA")
+                }
+            }
+        })
+
         button2.setOnClickListener(new OnClickListener {
             override def onClick(v: View): Unit = {
-                val m = new MyMessage(1,findViewById(R.id.editText).asInstanceOf[EditText].getText.toString,0)
+                val m = new MyMessage(2,findViewById(R.id.editText).asInstanceOf[EditText].getText.toString,1)
+                thread.invia(m)
+            }
+        })
+
+        button3.setOnClickListener(new OnClickListener {
+            override def onClick(v: View): Unit = {
+                val m = new MyMessage(2,findViewById(R.id.editTexPres).asInstanceOf[EditText].getText.toString,2)
                 thread.invia(m)
             }
         })
@@ -113,8 +142,12 @@ class MainActivity extends Activity  {
         override def handleMessage(msg: Message): Unit = {
             val bundle = msg.getData
             if (bundle.containsKey("refresh")) {
-                val value = bundle.getString("refresh")
-                findViewById(R.id.textViewValTemp).asInstanceOf[TextView].setText(value)
+                //val value = bundle.getString("refresh")
+                val value = bundle.getSerializable("refresh")
+                if(value.asInstanceOf[MyMessage].topic == 1)
+                    findViewById(R.id.textViewValTemp).asInstanceOf[TextView].setText(value.asInstanceOf[MyMessage].message)
+                else if(value.asInstanceOf[MyMessage].topic == 2)
+                    findViewById(R.id.textViewValPres).asInstanceOf[TextView].setText(value.asInstanceOf[MyMessage].message)
             }
         }
     }
