@@ -64,6 +64,9 @@ class MainActivity extends Activity  {
                     editTextTemp.setVisibility(View.INVISIBLE)
                     textviewValTemp.setVisibility(View.INVISIBLE)
                     button2.setVisibility(View.INVISIBLE)
+                    button3.setVisibility(View.INVISIBLE)
+                    editTextPres.setVisibility(View.INVISIBLE)
+                    textviewValPres.setVisibility(View.INVISIBLE)
                     button4.setText("ATTIVA")
 
                 }
@@ -74,6 +77,7 @@ class MainActivity extends Activity  {
             override def onClick(v: View): Unit = {
                 if(!target1){
                     target1 = true
+                    thread.invia(new MyMessage(1,"",1))
                     textviewModifica.setVisibility(View.VISIBLE)
                     editTextTemp.setVisibility(View.VISIBLE)
                     textviewValTemp.setVisibility(View.VISIBLE)
@@ -83,6 +87,7 @@ class MainActivity extends Activity  {
                 }
                 else{
                     target1 = false
+                    thread.invia(new MyMessage(3,"",1))
                     //textviewModifica.setVisibility(View.INVISIBLE)
                     editTextTemp.setVisibility(View.INVISIBLE)
                     textviewValTemp.setVisibility(View.INVISIBLE)
@@ -96,15 +101,16 @@ class MainActivity extends Activity  {
             override def onClick(v: View): Unit = {
                 if(!target2){
                     target2 = true
+                    thread.invia(new MyMessage(1,"",2))
                     textviewModifica.setVisibility(View.VISIBLE)
                     editTextPres.setVisibility(View.VISIBLE)
                     textviewValPres.setVisibility(View.VISIBLE)
                     button3.setVisibility(View.VISIBLE)
                     button5.setText("DISATTIVA")
-                    //thread.invia(new MyMessage(44,"ff",0))
                 }
                 else{
                     target2 = false
+                    thread.invia(new MyMessage(3,"",2))
                     //textviewModifica.setVisibility(View.INVISIBLE)
                     editTextPres.setVisibility(View.INVISIBLE)
                     textviewValPres.setVisibility(View.INVISIBLE)

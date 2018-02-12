@@ -23,7 +23,7 @@ class ClientThread(var handler:Handler) extends Thread {
   var updateMessage: MyMessage = _
 
   override def run(): Unit = {
-    val serverAddr = InetAddress.getByName("151.97.150.86")
+    val serverAddr = InetAddress.getByName("172.16.181.110")
     socket = new Socket(serverAddr,4000)
     out = new ObjectOutputStream(socket.getOutputStream)
     in = new ObjectInputStream(socket.getInputStream)
